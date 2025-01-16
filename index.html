@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edecanes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('9382c5285b11740236711b614dd303ab.jpg');
+            /* Reemplaza con la URL de tu imagen */
+            background-size: cover;
+            /* Hace que la imagen cubra todo el fondo */
+            background-position: center;
+            /* Centra la imagen */
+            background-attachment: fixed;
+            /* Mantiene la imagen fija cuando haces scroll */
+            background-repeat: no-repeat;
+            /* Evita que la imagen se repita */
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 7px;
+            
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .edecan {
+            overflow: hidden;
+            width: 300px;
+            text-align: center;
+            border-radius: 17px;
+            background: #f2f2f2;
+            
+        }
+
+        .edecan img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .edecan .details {
+            padding: 10px;
+        }
+
+        .details h3 {
+            margin: 0 0 10px;
+        }
+
+        .details p {
+            margin: 5px 0;
+        }
+
+        .galeria {
+            margin: 30px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+       .galeria:hover {
+            background-color: #0056b3;
+        }
+
+        .wats {
+            text-decoration: none;
+            margin: 30px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #1c9105;
+            color: #fff;
+            cursor: pointer;
+        }
+
+       .wats:hover {
+            background-color: #174f0a;
+        }
+
+        
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            position: relative;
+            width: 80%;
+            max-width: 800px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel img {
+            width: 100%;
+            display: none;
+        }
+
+        .carousel img.active {
+            display: block;
+        }
+
+        .carousel .prev,
+        .carousel .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .carousel .prev {
+            left: 10px;
+        }
+
+        .carousel .next {
+            right: 10px;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .whatsapp-button:hover {
+            background-color: #1ebe57;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Galería de Edecanes</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="edecan">
+            <img src="sofy-foto1.jpg" alt="Edecan">
+            <div class="details">
+                <h3>Sofy</h3>
+                <h3>$1,500</h3>
+                <p>Edad: 19</p>
+                <p>Altura: 1.55 m</p>
+                <p>Color de piel: Morena</p>
+                <button class="galeria" onclick="openModal('anaModal')">Ver más fotos</button>
+                <br>
+                <a class="wats" href="https://wa.link/mzuif0">WhatsApp</a>
+                <br>
+                <button class="galeria" onclick="openModal('anaModalservis')">Servicios</button>
+            </div>
+        </div>
+
+        <div class="edecan">
+            <img src="paola-foto 1.jpeg" alt="Edecan">
+            <div class="details">
+                <h3>Paola</h3>
+                <h3>$1,750</h3>
+                <p>Edad: 22</p>
+                <p>Altura: 1.65 m</p>
+                <p>Color de piel: Blanca</p>
+                <button class="galeria" onclick="openModal('sofiaModal')">Ver más fotos</button>
+                <br>
+                <a class="wats" href="https://wa.link/t8yr9d">WhatsApp</a>
+                <br>
+                <button class="galeria" onclick="openModal('sofiaModalservis')">Servicios</button>
+            </div>
+        </div>
+
+        
+    </div>
+
+    <!-- Modal de Ana -->
+    <div id="anaModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('anaModal')">&times;</span>
+            <div class="carousel">
+                <button class="prev" onclick="changeSlide(-1, 'anaModal')">&#10094;</button>
+                <img src="sofy-foto1.jpg" alt="Foto 1" class="active">
+                <img src="sofy-foto2.jpg" alt="Foto 2">
+                <img src="sofy-foto3.jpg" alt="Foto 3">
+                <img src="sofy-foto4.jpg" alt="Foto 4">
+                <img src="sofy-foto5.jpg" alt="Foto 5">
+                <button class="next" onclick="changeSlide(1, 'anaModal')">&#10095;</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="anaModalservis" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('anaModalservis')">&times;</span>
+            <div class="details">
+                <p>ENCUENTRO PRESENCIAL TE OFRECE🔥
+                    <br>
+                    ⚜️Cachondeo mutuo 🥵🥵
+                    <br>
+                    ⚜️Estimulación manual 💦
+                    <br>
+                    ⚜️Masaje relajante🤗
+                    <br>
+                    ⚜️Penetración vaginal ilimitada😏 
+                    <br>
+                    ⚜️Oral 🍆💦
+                    <br>
+                    ⚜️Trato de novios 🥰😍💘
+                    </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Sofía -->
+    <div id="sofiaModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('sofiaModal')">&times;</span>
+            <div class="carousel">
+                <button class="prev" onclick="changeSlide(-1, 'sofiaModal')">&#10094;</button>
+                <img src="paola-foto 1.jpeg" alt="Foto 1" class="active">
+                <img src="paola-foto 2.jpeg" alt="Foto 2">
+                <img src="paola-foto3.jpeg" alt="Foto 3">
+               
+                <button class="next" onclick="changeSlide(1, 'sofiaModal')">&#10095;</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="sofiaModalservis" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('sofiaModalservis')">&times;</span>
+            <div class="details">
+                <p>ENCUENTRO PRESENCIAL TE OFRECE🔥
+                    <br>
+                    ⚜️Cachondeo mutuo 🥵🥵
+                    <br>
+                    ⚜️Estimulación manual 💦
+                    <br>
+                    ⚜️Masaje relajante🤗
+                    <br>
+                    ⚜️Penetración vaginal ilimitada😏 
+                    <br>
+                    ⚜️Oral 🍆💦
+                    <br>
+                    ⚜️Trato de novios 🥰😍💘
+                    </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de María -->
+    <div id="mariaModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('mariaModal')">&times;</span>
+            <div class="carousel">
+                <button class="prev" onclick="changeSlide(-1, 'mariaModal')">&#10094;</button>
+                <img src="https://via.placeholder.com/800x500" alt="Foto 1" class="active">
+                <img src="https://via.placeholder.com/800x500" alt="Foto 2">
+                <img src="https://via.placeholder.com/800x500" alt="Foto 3">
+                <img src="https://via.placeholder.com/800x500" alt="Foto 4">
+                <img src="https://via.placeholder.com/800x500" alt="Foto 5">
+                <button class="next" onclick="changeSlide(1, 'mariaModal')">&#10095;</button>
+            </div>
+        </div>
+    </div>
+
+    <a href="https://wa.me/?text=Hola,%20me%20interesa%20contactar%20con%20ustedes" class="whatsapp-button"
+        target="_blank">&#128222;</a>
+
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        function changeSlide(direction, modalId) {
+            const modal = document.getElementById(modalId);
+            const images = modal.querySelectorAll(".carousel img");
+            let currentIndex = Array.from(images).findIndex(img => img.classList.contains("active"));
+            images[currentIndex].classList.remove("active");
+            currentIndex = (currentIndex + direction + images.length) % images.length;
+            images[currentIndex].classList.add("active");
+        }
+
+        window.addEventListener('click', function (event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
